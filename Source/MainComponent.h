@@ -18,6 +18,11 @@
 class MainComponent   : public Component
 {
 public:
+    enum RadioButtonIds
+    {
+        GenderButtons = 1001
+    };
+    
     //==============================================================================
     MainComponent();
     ~MainComponent();
@@ -25,11 +30,14 @@ public:
     //==============================================================================
     void paint (Graphics&) override;
     void resized() override;
+    
+    void updateToggleState (Button*, String);
+
 
 private:
-    //==============================================================================
-    // Your private member variables go here...
-
+    Label genderLabel, hobbiesLabel;
+    //ToggleButton maleButton, femaleButton, otherButton, sportButton, artButton, filmButton;
+    TextButton maleButton, femaleButton, otherButton, sportButton, artButton, filmButton;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)
 };
